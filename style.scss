@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lexend+Deca&display=swap");
+
+$main-Background: hsl(233, 47%, 7%);
+$card-Background: hsl(244, 38%, 16%);
+$accent: hsl(277, 64%, 61%);
+$main-Heading: hsl(0, 0%, 100%);
+$main-Paragraph: hsla(0, 0%, 100%, 0.75);
+$stat-Headings: hsla(0, 0%, 100%, 0.6);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: content-box;
+  font-size: 15px;
+  list-style-type: none;
+}
+
+@mixin heading1($color) {
+  font-weight: 700;
+  color: $color;
+  font-size: 2.25rem;
+  font-family: Inter;
+}
+
+body {
+  h1 {
+    span {
+      @include heading1($color: $accent);
+    }
+    @include heading1($color: $main-Heading);
+  }
+  min-height: 100vh;
+  display: flex;
+  background-color: $main-Background;
+  justify-content: center;
+  align-items: center;
+}
+
+section p {
+  line-height: 1.75rem;
+  color: $main-Paragraph;
+  font-family: "Inter";
+  word-spacing: 0.1rem;
+}
+
+.card {
+  border-radius: 1%;
+  background-color: $card-Background;
+  padding: 3.95em;
+}
+
+.cardStats ul {
+  display: flex;
+}
+
+.cardStats ul li {
+  margin-right: 1.5em;
+}
+
+.cardStats ul li h3 {
+  display: flex;
+  min-width: max-content;
+  margin-top: 5.5rem;
+  font-family: "Inter";
+  color: $main-Heading;
+  line-height: 1.5rem;
+  margin-right: 5rem;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.cardStats ul li p {
+  font-family: "Lexend Deca";
+  color: $stat-Headings;
+  letter-spacing: 0.05rem;
+}
+
+.imageDiv {
+  img {
+    color: $accent;
+    display: block;
+    mix-blend-mode: multiply;
+    opacity: 0.7;
+    max-height: 70vh;
+    max-width: fit-content;
+  }
+  display: flex;
+  background-color: $accent;
+  border-radius: 1%;
+  max-width: max-content;
+}
