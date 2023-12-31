@@ -11,81 +11,115 @@ $stat-Headings: hsla(0, 0%, 100%, 0.6);
   margin: 0;
   padding: 0;
   box-sizing: content-box;
-  font-size: 15px;
   list-style-type: none;
 }
 
-@mixin heading1($color) {
-  font-weight: 700;
-  color: $color;
-  font-size: 2.25rem;
-  font-family: Inter;
-}
-
 body {
-  h1 {
-    span {
-      @include heading1($color: $accent);
-    }
-    @include heading1($color: $main-Heading);
-  }
   min-height: 100vh;
-  display: flex;
   background-color: $main-Background;
-  justify-content: center;
+  display: flex;
   align-items: center;
 }
 
-section p {
-  line-height: 1.75rem;
-  color: $main-Paragraph;
-  font-family: "Inter";
-  word-spacing: 0.1rem;
+.container {
+  max-width: 1250px;
+  margin: 0 auto;
 }
 
 .card {
-  border-radius: 1%;
   background-color: $card-Background;
-  padding: 3.95em;
-}
-
-.cardStats ul {
-  display: flex;
-}
-
-.cardStats ul li {
-  margin-right: 1.5em;
-}
-
-.cardStats ul li h3 {
-  display: flex;
-  min-width: max-content;
-  margin-top: 5.5rem;
-  font-family: "Inter";
-  color: $main-Heading;
-  line-height: 1.5rem;
-  margin-right: 5rem;
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.cardStats ul li p {
-  font-family: "Lexend Deca";
-  color: $stat-Headings;
-  letter-spacing: 0.05rem;
+  display: grid;
+  grid-template-columns: 0.9fr 0.75fr;
+  border-radius: 1%;
+  overflow: hidden;
+  margin: 3rem;
 }
 
 .imageDiv {
   img {
-    color: $accent;
-    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     mix-blend-mode: multiply;
     opacity: 0.7;
-    max-height: 70vh;
-    max-width: fit-content;
   }
-  display: flex;
   background-color: $accent;
-  border-radius: 1%;
-  max-width: max-content;
+}
+
+.textComponent {
+  margin-right: 4em;
+  padding: 12%;
+  font-family: "Inter";
+}
+
+.textComponent h1 {
+  color: white;
+  padding-bottom: 1em;
+  word-spacing: 0.1rem;
+  font-size: 2rem;
+}
+
+.textComponent h1 span {
+  color: $accent;
+}
+
+.textComponent #mainParagraph {
+  color: $main-Paragraph;
+  opacity: 0.8;
+  font-size: 15px;
+  line-height: 1.8em;
+}
+
+.cardStats ul {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 60px;
+}
+
+.cardStats ul li h3 {
+  font-size: 1.5rem;
+  color: white;
+  line-height: 2.5rem;
+}
+
+.cardStats ul li p {
+  color: $stat-Headings;
+  font-size: 0.75rem;
+  letter-spacing: 0.1rem;
+}
+
+@media screen and (max-width: 425px) {
+  body {
+    text-align: center;
+  }
+  .card {
+    grid-template-columns: 1fr;
+    margin: 2em;
+  }
+
+  .imageDiv {
+    order: -1;
+  }
+
+  .cardStats {
+    display: grid;
+    grid-template-rows: 1fr;
+  }
+
+  .textComponent {
+    margin-right: 0;
+  }
+
+  .textComponent h1 {
+    font-size: 36px;
+    line-height: 1.3em;
+  }
+
+  .cardStats ul {
+    flex-direction: column;
+    padding-top: 15px;
+  }
+  .cardStats ul li {
+    padding-top: 15px;
+  }
 }
